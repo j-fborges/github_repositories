@@ -36,6 +36,10 @@
     @apply size-[104px] rounded-full mb-4 lg:size-[150px] lg:mb-6;
 }
 
+.user-card__status-emoji {
+   @apply bg-white size-[28px] rounded-full absolute bottom-[4px] right-[16px] flex justify-center items-center pt-[2px];
+}
+
 .user-card__name {
     @apply text-xl text-center font-bold text-C_1 mb-1 lg:text-2xl;
 }

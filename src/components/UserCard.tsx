@@ -1,21 +1,21 @@
-import { useQuery } from "@tanstack/react-query";
-import { getUser } from "../api/getUser";
+import type { User, UserStatus } from "../types/User";
 
-function UserCard() {
-  const { isPending, error, data } = useQuery({
-    queryKey: ["userData"],
-    queryFn: getUser,
-  });
+type UserCardProps = {
+  user: User,
+  userStatus: UserStatus
+}
 
-  if (isPending) return "Loading...";
-
-  if (error) return "An error has occurred: " + error.message;
+function UserCard({user, userStatus}:UserCardProps) {
 
   return (
     <header className="user-card">
-      <img src={data.avatar_url} alt="user avatar" className="user-card__avatar" />
-      <h2 className="user-card__name">{data.name}</h2>
-      <h3 className="user-card__bio">{data.bio}</h3>
+      <div className="user-card__avatar relative shadow-xl">
+        <img src={user.avatar_url || ""} alt="user avatar" className="user-card__avatar" />
+        <div className="user-card__status-emoji" dangerouslySetInnerHTML={{ __html: userStatus.emoji }}>
+        </div>
+      </div>
+      <h2 className="user-card__name">{user.name}</h2>
+      <h3 className="user-card__bio">{user.bio}</h3>
     </header>
   );
 }

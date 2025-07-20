@@ -1,34 +1,88 @@
+import type { User } from "../types/User";
+
 type getUserFields = {
-  name: string;
-  avatar_url: string;
-  bio: string;
-  html_url: string;
-  public_repos: number;
-  location: string;
-  company: string;
-  blog: string;
+  user: User
+};
+
+const github_data = {
+  token:
+    "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",
+  username: "j-fborges",
+};
+
+const baseUrl = "https://api.github.com/graphql";
+const headers = {
+  "Content-Type": "application/json",
+  Authorization: "bearer " + github_data.token,
+};
+const body = {
+  query: `
+query {
+  user(login: "${github_data["username"]}"){
+    name
+    url
+    avatarUrl
+    company
+    bio
+    status{
+      emoji
+      emojiHTML
+      message
+    }
+    starredRepositories{
+      totalCount
+    }
+    location
+    websiteUrl
+    repositories(first: 100){
+      totalCount
+      nodes{
+        name
+        createdAt
+        description
+        url
+        
+      }
+    }
+    
+  }
+}
+  `,
 };
 
 export async function getUser(): Promise<getUserFields> {
   return new Promise<getUserFields>(async (resolve, reject) => {
     try {
-      const response = await fetch("https://api.github.com/users/j-fborges");
+      const response = await fetch(baseUrl, {
+        method: "POST",
+        headers: headers,
+        body: JSON.stringify(body),
+      });
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
-      const data: getUserFields = await response.json();
+      const data = await response.json();
+      
+      const user = (data.data.user)
+      const userStatus = user.status
 
       resolve({
-        name: data.name,
-        avatar_url: data.avatar_url,
-        bio: data.bio,
-        html_url: data.html_url,
-        public_repos: data.public_repos,
-        location: data.location,
-        company: data.company,
-        blog: data.blog,
+        user: {
+          name: user.name,
+          avatar_url: user.avatarUrl,
+          bio: user.bio,
+          html_url: user.url,
+          public_repos: user.repositories.totalCount,
+          location: user.location,
+          company: user.company,
+          blog: user.websiteUrl,
+          status: {
+            emoji: userStatus.emojiHTML,
+            message: userStatus.message
+          }
+        }
       });
     } catch (error) {
       reject(error);
