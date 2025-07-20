@@ -3,13 +3,14 @@
 
 @font-face {
   font-family: Roboto;
-  src: url(../assets/Roboto-VariableFont_wdthwght.ttf);
+  src: url(../assets/robotoFont.ttf);
 }
 
 @theme {
   --font-roboto: "Roboto", sans-serif;
   --color-C_1: #262626;
   --color-C_3: #989898;
+  --color-H_1: #24292E;
 }
 
 :root {
@@ -37,7 +38,7 @@
 }
 
 .user-card__status-emoji {
-   @apply bg-white size-[28px] rounded-full absolute bottom-[4px] right-[16px] flex justify-center items-center pt-[2px];
+   @apply bg-white size-10 rounded-full absolute bottom-[4px] right-[8px] flex justify-center items-center pt-[2px] max-lg:size-[28px];
 }
 
 .user-card__name {
@@ -46,4 +47,24 @@
 
 .user-card__bio {
     @apply text-sm text-center font-normal text-C_3 mb-6 sm:mb-11 lg:text-base lg:mb-8;
+}
+
+.header {
+  @apply w-full bg-H_1 h-18 flex flex-col justify-center items-start max-sm:hidden px-6
+}
+
+.header__container {
+  @apply max-w-[1125px] w-full mx-auto flex flex-row items-center justify-start gap-[22px]
+}
+
+.header__logo {
+  @apply w-[124px] h-[30px]
+}
+
+.header__divider {
+  @apply text-2xl text-white
+}
+
+.header__text {
+  @apply font-light text-base text-white
 }

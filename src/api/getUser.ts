@@ -5,9 +5,8 @@ type getUserFields = {
 };
 
 const github_data = {
-  token:
-    "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",
-  username: "j-fborges",
+  token: import.meta.env.VITE_GITHUB_API_ACESS_TOKEN,
+  username: import.meta.env.VITE_GITHUB_USER_PROFILE,
 };
 
 const baseUrl = "https://api.github.com/graphql";

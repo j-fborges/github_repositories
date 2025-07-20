@@ -1,7 +1,8 @@
 import "./styles/main.css";
-import UserCard from "./components/UserCard";
+import UserCard from "./components/user/UserCard";
 import { useQuery } from "@tanstack/react-query";
 import { getUser } from "./api/getUser";
+import Header from "./components/Header";
 
 function App() {
   const { isPending, error, data } = useQuery({
@@ -15,6 +16,7 @@ function App() {
 
   return (
     <>
+      <Header/>
       <div className="layout">
         <UserCard user={data.user} userStatus={data.user.status}/>
         <div className="w-[100%] h-[100%]"></div>
