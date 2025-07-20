@@ -1,4 +1,16 @@
-@import 'tailwindcss';
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import "tailwindcss";
+
+@font-face {
+  font-family: Roboto;
+  src: url(../assets/Roboto-VariableFont_wdthwght.ttf);
+}
+
+@theme {
+  --font-roboto: "Roboto", sans-serif;
+  --color-C_1: #262626;
+  --color-C_3: #989898;
+}
 
 :root {
   font-synthesis: none;
@@ -9,6 +21,25 @@
 
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  @apply font-roboto;
+}
+
+.layout {
+  @apply flex flex-col items-center justify-center pt-10 sm:flex-row sm:px-6 gap-6 lg:max-w-[1154px] lg:mx-auto;
+}
+
+.user-card {
+    @apply flex flex-col items-center justify-center w-[217px] h-[245px] sm:h-[334px] lg:w-[251px] lg:h-auto
+}
+
+.user-card__avatar {
+    @apply size-[104px] rounded-full mb-4 lg:size-[150px] lg:mb-6;
+}
+
+.user-card__name {
+    @apply text-xl text-center font-bold text-C_1 mb-1 lg:text-2xl;
+}
+
+.user-card__bio {
+    @apply text-sm text-center font-normal text-C_3 mb-6 sm:mb-11 lg:text-base lg:mb-8;
 }

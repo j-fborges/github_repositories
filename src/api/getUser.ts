@@ -1,12 +1,12 @@
 type getUserFields = {
-  name: String;
-  avatar_url: String;
-  bio: String;
-  html_url: String;
-  public_repos: Number;
-  location: String;
-  company: String;
-  blog: String;
+  name: string;
+  avatar_url: string;
+  bio: string;
+  html_url: string;
+  public_repos: number;
+  location: string;
+  company: string;
+  blog: string;
 };
 
 export async function getUser(): Promise<getUserFields> {
