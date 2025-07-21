@@ -9,8 +9,10 @@
 @theme {
   --font-roboto: "Roboto", sans-serif;
   --color-C_1: #262626;
+  --color-C_2: #f8f8f8;
   --color-C_3: #989898;
-  --color-H_1: #24292E;
+  --color-H_1: #24292e;
+  --color-L_1: #0587ff;
 }
 
 :root {
@@ -30,41 +32,73 @@
 }
 
 .user-card {
-    @apply flex flex-col items-center justify-center w-[217px] h-[245px] sm:h-[334px] lg:w-[251px] lg:h-auto
+  @apply flex flex-col items-center justify-center w-[217px] h-auto lg:w-[251px];
 }
 
 .user-card__avatar {
-    @apply size-[104px] rounded-full mb-4 lg:size-[150px] lg:mb-6;
+  @apply size-[104px] rounded-full mb-4 lg:size-[150px] lg:mb-6;
 }
 
 .user-card__status-emoji {
-   @apply bg-white size-10 rounded-full absolute bottom-[4px] right-[8px] flex justify-center items-center pt-[2px] max-lg:size-[28px];
+  @apply bg-white size-10 rounded-full absolute bottom-[4px] right-[8px] flex justify-center items-center pt-[2px] max-lg:size-[28px];
 }
 
 .user-card__name {
-    @apply text-xl text-center font-bold text-C_1 mb-1 lg:text-2xl;
+  @apply text-xl text-center font-bold text-C_1 mb-1 lg:text-2xl;
 }
 
 .user-card__bio {
-    @apply text-sm text-center font-normal text-C_3 mb-6 sm:mb-11 lg:text-base lg:mb-8;
+  @apply text-sm text-center font-normal text-C_3 mb-6 sm:mb-11 lg:text-base lg:mb-8;
 }
 
 .header {
-  @apply w-full bg-H_1 h-18 flex flex-col justify-center items-start max-sm:hidden px-6
+  @apply w-full bg-H_1 h-18 flex flex-col justify-center items-start max-sm:hidden px-6;
 }
 
 .header__container {
-  @apply max-w-[1125px] w-full mx-auto flex flex-row items-center justify-start gap-[22px]
+  @apply max-w-[1125px] w-full mx-auto flex flex-row items-center justify-start gap-[22px];
 }
 
 .header__logo {
-  @apply w-[124px] h-[30px]
+  @apply w-[124px] h-[30px];
 }
 
 .header__divider {
-  @apply text-2xl text-white
+  @apply text-2xl text-white;
 }
 
 .header__text {
-  @apply font-light text-base text-white
+  @apply font-light text-base text-white;
+}
+
+.info-drawer--mobile-screen {
+  @apply flex flex-col items-center justify-start w-full px-6 whitespace-nowrap sm:hidden min-w-[280px];
+}
+
+.info-drawer--medium-screen {
+  @apply flex flex-col items-start justify-start w-full whitespace-nowrap max-sm:hidden;
+}
+
+.info-drawer__button {
+  @apply flex flex-col items-center justify-start pb-2;
+}
+
+.info-drawer__button-title {
+  @apply text-L_1 text-sm cursor-pointer;
+}
+
+.info-drawer__link-container {
+  @apply flex flex-col items-start justify-start max-sm:bg-C_2 rounded-2xl gap-4 py-4 px-4 w-[86vw] whitespace-nowrap sm:whitespace-normal sm:w-full sm:p-0 min-w-[280px];
+}
+
+.info-drawer__link {
+  @apply flex flex-row items-center justify-start gap-2;
+}
+
+.info-drawer__link-text {
+  @apply text-L_1 text-sm cursor-pointer whitespace-nowrap;
+}
+
+.info-drawer__link-icon {
+  @apply size-4;
 }
