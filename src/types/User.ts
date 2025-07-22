@@ -1,4 +1,5 @@
 import type { JSX } from "react";
+import type { Repository } from "./Repository";
 
 export type User = {
   name?: string;
@@ -7,7 +8,10 @@ export type User = {
   html_url?: string;
   instagram_url?: string
   instagram_nickname?:string
-  public_repos?: number;
+  publicReposCount?: number;
+  starredReposCount?: number;
+  repositories?: Repository[],
+  starredRepositories?: Repository[],
   location?: string;
   company?: string;
   blog?: string;

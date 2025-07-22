@@ -28,9 +28,6 @@ query {
       emojiHTML
       message
     }
-    starredRepositories{
-      totalCount
-    }
     location
     websiteUrl
     projectsUrl
@@ -48,10 +45,45 @@ query {
         createdAt
         description
         url
-        
+        nameWithOwner
+        owner{
+          login
+        }
+        forkCount
+        stargazerCount
+        languages{
+          nodes{
+            name
+          }
+        }
+        primaryLanguage{
+          name
+        }
       }
     }
-    
+    starredRepositories{
+      totalCount
+      nodes{
+        name
+        createdAt
+        description
+        url
+        nameWithOwner
+        owner{
+          login
+        }
+        forkCount
+        stargazerCount
+        languages{
+          nodes{
+            name
+          }
+        }
+          primaryLanguage{
+          name
+        }
+      }
+    }
   }
 }
   `,
@@ -81,12 +113,15 @@ export async function getUser(): Promise<getUserFields> {
           avatar_url: user.avatarUrl,
           bio: user.bio,
           html_url: user.url,
-          public_repos: user.repositories.totalCount,
+          publicReposCount: user.repositories.totalCount,
+          starredReposCount: user.starredRepositories.totalCount,
           location: user.location,
           company: user.company,
           blog: user.websiteUrl,
           instagram_url: user.socialAccounts.nodes[0].url,
           instagram_nickname: user.socialAccounts.nodes[0].displayName,
+          repositories: user.repositories.nodes,
+          starredRepositories: user.starredRepositories.nodes,
           status: {
             emoji: userStatus.emojiHTML,
             message: userStatus.message,

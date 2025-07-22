@@ -3,7 +3,7 @@ import UserAdditionalInformation from "./UserAdditionalInformation";
 
 type UserCardProps = {
   user: User;
-  userStatus: UserStatus;
+  userStatus?: UserStatus;
 };
 
 function UserCard({ user, userStatus }: UserCardProps) {
@@ -17,7 +17,7 @@ function UserCard({ user, userStatus }: UserCardProps) {
         />
         <div
           className="user-card__status-emoji"
-          dangerouslySetInnerHTML={{ __html: userStatus.emoji || "" }}
+          dangerouslySetInnerHTML={{ __html: userStatus?.emoji || "" }}
         ></div>
       </div>
       <h2 className="user-card__name">{user.name}</h2>

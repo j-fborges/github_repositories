@@ -8,11 +8,15 @@
 
 @theme {
   --font-roboto: "Roboto", sans-serif;
+  --breakpoint-xs: 20rem;
   --color-C_1: #262626;
   --color-C_2: #f8f8f8;
   --color-C_3: #989898;
+  --color-C_4: #f4f4f4;
+  --color-C_5: #DBDBDB;
   --color-H_1: #24292e;
   --color-L_1: #0587ff;
+  --color-R_1: #FD8C73;
 }
 
 :root {
@@ -28,7 +32,7 @@
 }
 
 .layout {
-  @apply flex flex-col items-center justify-center pt-10 sm:flex-row sm:px-6 gap-6 lg:max-w-[1154px] lg:mx-auto;
+  @apply flex flex-col items-center justify-center pt-10 sm:flex-row sm:px-6 gap-10 lg:max-w-[1154px] lg:mx-auto sm:justify-start sm:items-start min-h-full;
 }
 
 .user-card {
@@ -102,3 +106,72 @@
 .info-drawer__link-icon {
   @apply size-4;
 }
+
+.repo-tabs {
+  @apply w-full h-[100%] flex flex-col items-center px-6 max-xs:px-2
+}
+
+.repo-tabs__header {
+  @apply flex flex-row w-full items-start justify-start gap-[56px] self-start max-sm:gap-[6%] max-sm:justify-between max-sm:max-w-[380px] max-md:gap-[4%]
+}
+
+.repo-tabs__button {
+  @apply flex flex-row w-full justify-evenly max-w-[185px] border-b-2 border-transparent py-4 pl-2 max-sm:w-auto
+}
+
+.repo-tabs__button--is-active {
+  @apply flex flex-row w-full justify-evenly max-w-[185px] border-b-2 border-R_1 py-4 pl-2 max-sm:w-auto
+}
+
+.repo-tabs__button-text {
+  @apply text-base pl-2 pr-4 max-sm:pl-1 max-sm:pr-2
+}
+
+.repo-tabs__button-icon {
+  @apply size-6
+}
+
+.repo-tabs__button-counter {
+  @apply w-10 h-6 rounded-2xl bg-C_2 text-C_3 border-C_5 border text-sm flex items-center justify-center
+}
+
+.repo-card {
+  @apply flex flex-col gap-[9px] w-full items-start justify-start py-8 border-b border-b-C_4
+}
+
+.repo-card__header{
+  @apply flex flex-row gap-[9px] items-center
+}
+
+.repo-card__repo-owner{
+  @apply font-light text-lg capitalize
+}
+
+.repo-card__divider{
+ @apply text-xl
+}
+
+.repo-card__repo-name{
+  @apply font-medium text-lg text-L_1 capitalize
+}
+
+.repo-card__description{
+  @apply text-sm text-C_3 min-h-[15px]
+}
+
+.repo-card__footer{
+  @apply flex flex-row gap-11 items-center
+}
+
+.repo-card__stats-container{
+  @apply flex flex-row gap-[9px] items-center
+}
+
+.repo-card__stats-icon{
+  @apply size-[16px]
+}
+
+.repo-card__stats-text{
+  @apply text-sm
+}
+
