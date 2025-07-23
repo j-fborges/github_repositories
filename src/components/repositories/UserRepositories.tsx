@@ -4,18 +4,24 @@ import RepoTabs from "./RepoTabs";
 import PublicAndStarredRepoLists from "./ PublicAndStarredRepoLists";
 import RepositoryListFilters from "./filters/RepositoryFilters";
 import useLanguageFilterStore from "../../api/languageFilterStore";
+import useCateforyFilterStore from "../../api/categoryFilterStore";
 
 function UserRepositories() {
   const activeLangFilters = useLanguageFilterStore(
     (state) => state.activeLangFilters
   );
+  const activeCategoriesFilters = useCateforyFilterStore((state)=> state.activeCategoriesFilters)
+  const activeCatFiltersCount = useCateforyFilterStore((state)=> state.activeFiltersCount)
+
+  const {isSource, isArchived, isFork, isMirror} = activeCategoriesFilters
 
   const { isPending, error, data } = useQuery({
-    queryKey: ["repositoryData", activeLangFilters],
+    queryKey: ["repositoryData", activeLangFilters, isSource, isArchived, isFork, isMirror],
     queryFn: () =>
       getRepositories({
         languagesToFilter: activeLangFilters,
-        categoryFilterOn: false,
+        categoriesToFilter: activeCategoriesFilters,
+        categoryFilterOn: activeCatFiltersCount > 0,
         languageFilterOn: activeLangFilters.length > 0,
       }),
   });

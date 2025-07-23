@@ -57,7 +57,7 @@
 }
 
 .header {
-  @apply w-full bg-H_1 h-18 flex flex-col justify-center items-start max-sm:hidden px-6;
+  @apply w-[100vw] bg-H_1 h-18 flex flex-col justify-center items-start max-sm:hidden px-6;
 }
 
 .header__container {
@@ -109,7 +109,7 @@
 }
 
 .repo-tabs {
-  @apply w-full h-[100%] flex flex-col items-center px-6 max-xs:px-2
+  @apply w-full h-[100%] flex flex-col items-center px-6 max-xs:px-2 sm:max-w-[65%]
 }
 
 .repo-tabs__header {
@@ -185,7 +185,7 @@
 }
 
 .filter__drawer__button {
-  @apply flex flex-row px-2 py-4 bg-gradient-to-r from-L_2 to-L_1 rounded-3xl gap-[10px] max-h-10 items-center font-normal max-w-[35%] max-sm:max-w-[160px] max-sm:w-auto min-w-[160px]
+  @apply flex flex-row px-2 py-4 bg-gradient-to-r from-L_2 to-L_1 rounded-3xl gap-[10px] max-h-10 items-center font-normal max-sm:max-w-[160px] w-full pr-4
 }
 
 .filter__drawer__button-icon {
@@ -209,7 +209,7 @@
 }
 
 .filter__container {
-  @apply flex flex-col gap-1 py-4 px-2 bg-white rounded-2xl w-full
+  @apply flex flex-col gap-1 py-4 px-2 bg-white rounded-2xl w-full sm:shadow-xl
 }
 
 .filter__label {

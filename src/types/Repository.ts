@@ -16,6 +16,9 @@ export type Repository = {
     primaryLanguage?: {
         name?: string
     }
+    isFork:boolean,
+    isArchived:boolean,
+    isMirror:boolean,
 }
 
 export type RepositoryList = {

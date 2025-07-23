@@ -1,3 +1,4 @@
+import useCategoryFilterStore from "../../../api/categoryFilterStore";
 import useLanguageFilterStore from "../../../api/languageFilterStore";
 
 type FilterCheckboxProps = {
@@ -16,6 +17,9 @@ function FilterCheckbox({
   const setActiveFilters = useLanguageFilterStore(
     (state) => state.setActiveFilters
   );
+  const setActiveCategoryFilters = useCategoryFilterStore(
+    (state) => state.setActiveFilters
+  );
 
   return (
     <>
@@ -27,6 +31,7 @@ function FilterCheckbox({
           onChange={() => {
             toggleActive();
             setActiveFilters();
+            setActiveCategoryFilters();
           }}
         />
         <span>{filterTitle}</span>
