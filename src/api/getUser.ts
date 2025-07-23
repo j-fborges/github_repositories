@@ -4,16 +4,17 @@ type getUserFields = {
   user: User;
 };
 
-const github_data = {
+export const github_data = {
   token: import.meta.env.VITE_GITHUB_API_ACESS_TOKEN,
   username: import.meta.env.VITE_GITHUB_USER_PROFILE,
 };
 
-const baseUrl = "https://api.github.com/graphql";
-const headers = {
+export const baseUrl = "https://api.github.com/graphql";
+export const headers = {
   "Content-Type": "application/json",
   Authorization: "bearer " + github_data.token,
 };
+
 const body = {
   query: `
 query {
@@ -37,57 +38,12 @@ query {
         url
         displayName
       }
-    }
-    repositories(first: 100){
-      totalCount
-      nodes{
-        name
-        createdAt
-        description
-        url
-        nameWithOwner
-        owner{
-          login
-        }
-        forkCount
-        stargazerCount
-        languages{
-          nodes{
-            name
-          }
-        }
-        primaryLanguage{
-          name
-        }
-      }
-    }
-    starredRepositories{
-      totalCount
-      nodes{
-        name
-        createdAt
-        description
-        url
-        nameWithOwner
-        owner{
-          login
-        }
-        forkCount
-        stargazerCount
-        languages{
-          nodes{
-            name
-          }
-        }
-          primaryLanguage{
-          name
-        }
-      }
-    }
+    }    
   }
 }
   `,
 };
+
 
 export async function getUser(): Promise<getUserFields> {
   return new Promise<getUserFields>(async (resolve, reject) => {
@@ -113,15 +69,11 @@ export async function getUser(): Promise<getUserFields> {
           avatar_url: user.avatarUrl,
           bio: user.bio,
           html_url: user.url,
-          publicReposCount: user.repositories.totalCount,
-          starredReposCount: user.starredRepositories.totalCount,
           location: user.location,
           company: user.company,
           blog: user.websiteUrl,
           instagram_url: user.socialAccounts.nodes[0].url,
           instagram_nickname: user.socialAccounts.nodes[0].displayName,
-          repositories: user.repositories.nodes,
-          starredRepositories: user.starredRepositories.nodes,
           status: {
             emoji: userStatus.emojiHTML,
             message: userStatus.message,

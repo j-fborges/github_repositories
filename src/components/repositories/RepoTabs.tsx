@@ -4,27 +4,26 @@ import starredIconOff from "../../assets/starredIcon.svg";
 import repoIconOn from "../../assets/repoIconOn.svg";
 import starredIconOn from "../../assets/starredIconOn.svg";
 import RepoTabButton from "./RepoTabButton";
-import RepoList from "./RepoList";
-import type { Repository } from "../../types/Repository";
 
 type RepoTabsProps = {
-  reposCount: number;
-  starredCount: number;
-  publicRepositories: Repository[],
-  starredRepositories: Repository[]
-};
+    publicReposCount: number,
+    starredReposCount: number
+}
 
-function RepoTabs({ reposCount, starredCount, publicRepositories, starredRepositories }: RepoTabsProps) {
-  const { openRepositoriesTab, openStarredTab, openTab } = useTabsStore();
+
+function RepoTabs({publicReposCount, starredReposCount}:RepoTabsProps) {
+
+  const openRepositoriesTab = useTabsStore((state)=> state.openRepositoriesTab);
+  const openStarredTab = useTabsStore((state)=> state.openStarredTab);
+  const openTab = useTabsStore((state)=> state.openTab);
 
   const repoTabsActive = openTab == "repositories";
 
   return (
     <>
-      <div className="repo-tabs">
         <div className="repo-tabs__header">
           <RepoTabButton
-            reposCount={reposCount}
+            reposCount={publicReposCount || 0}
             activeButtonSrc={repoIconOn}
             inactiveButtonSrc={repoIconOff}
             isActive={repoTabsActive}
@@ -32,7 +31,7 @@ function RepoTabs({ reposCount, starredCount, publicRepositories, starredReposit
             openTabFunction={openRepositoriesTab}
           />
           <RepoTabButton
-            reposCount={starredCount}
+            reposCount={starredReposCount || 0}
             activeButtonSrc={starredIconOn}
             inactiveButtonSrc={starredIconOff}
             isActive={!repoTabsActive}
@@ -40,17 +39,6 @@ function RepoTabs({ reposCount, starredCount, publicRepositories, starredReposit
             openTabFunction={openStarredTab}
           />
         </div>
-        {openTab == "repositories" && (
-          <>
-            <RepoList repositories={publicRepositories} />
-          </>
-        )}
-        {openTab == "starred" && (
-          <>
-            <RepoList repositories={starredRepositories} isStarredList/>
-          </>
-        )}
-      </div>
     </>
   );
 }

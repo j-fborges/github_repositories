@@ -17,3 +17,8 @@ export type Repository = {
         name?: string
     }
 }
+
+export type RepositoryList = {
+    repos: Repository[],
+    reposCount: number
+}

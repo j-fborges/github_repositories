@@ -16,6 +16,7 @@
   --color-C_5: #DBDBDB;
   --color-H_1: #24292e;
   --color-L_1: #0587ff;
+  --color-L_2: #0056A6;
   --color-R_1: #FD8C73;
 }
 
@@ -175,3 +176,46 @@
   @apply text-sm
 }
 
+.filter__list {
+  @apply flex flex-row w-full max-sm:bg-C_2 px-2 py-4 h-14 rounded-2xl gap-4 items-center justify-end mt-6 mb-8 max-sm:justify-start
+}
+
+.filter__drawer {
+  @apply flex flex-col relative w-auto max-h-10
+}
+
+.filter__drawer__button {
+  @apply flex flex-row px-2 py-4 bg-gradient-to-r from-L_2 to-L_1 rounded-3xl gap-[10px] max-h-10 items-center font-normal max-w-[35%] max-sm:max-w-[160px] max-sm:w-auto min-w-[160px]
+}
+
+.filter__drawer__button-icon {
+  @apply size-6 flex items-center justify-center
+}
+
+.filter__drawer__button-text {
+  @apply text-lg text-white
+}
+
+.filter__options, .filter__options--mobile {
+  @apply hidden invisible
+}
+
+.filter__options--is-open {
+  @apply flex visible max-sm:hidden max-sm:invisible
+}
+
+.filter__options--is-open--mobile {
+  @apply flex sm:hidden sm:invisible px-6
+}
+
+.filter__container {
+  @apply flex flex-col gap-1 py-4 px-2 bg-white rounded-2xl w-full
+}
+
+.filter__label {
+  @apply flex flex-row py-4 px-2 gap-4 items-center h-8 w-full
+}
+
+.filter__checkbox {
+  @apply size-6 border border-C_4
+}

@@ -1,7 +1,7 @@
 import chevronDown from "../../assets/chevronDown.svg";
 import chevronUp from "../../assets/chevronUp.svg";
 import type { User } from "../../types/User";
-import useDrawerStore from "./InformationDrawerStore";
+import useDrawerStore from "./informationDrawerStore";
 import enterpriseIcon from "../../assets/enterpriseIcon.svg";
 import instagramIcon from "../../assets/instagramIcon.svg";
 import linkIcon from "../../assets/linkIcon.svg";

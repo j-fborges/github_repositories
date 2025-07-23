@@ -7,10 +7,11 @@ type RepoListProps = {
 };
 
 function RepoList({ repositories, isStarredList = false }: RepoListProps) {
+    
   return (
     <>
-      {repositories.map((repo) => {
-        return <RepoCard repo={repo} isStarredList={isStarredList} />;
+      {repositories.map((repo, key) => {
+        return <RepoCard repo={repo} isStarredList={isStarredList} key={key} />;
       })}
     </>
   );
