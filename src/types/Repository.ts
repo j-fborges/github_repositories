@@ -7,7 +7,9 @@ export type Repository = {
     nameWithOwner:string,
     owner: {
         login: string
+        avatarUrl: string,
     }
+    issues: RepositoryIssuesList,
     languages: {
         nodes: [{
             name: string
@@ -24,4 +26,17 @@ export type Repository = {
 export type RepositoryList = {
     repos: Repository[],
     reposCount: number
+}
+
+export type RepositoryIssue = {
+    url: string,
+    title: string,
+    author: {
+        login: string
+    },
+}
+
+type RepositoryIssuesList = {
+    totalCount: number,
+    nodes: RepositoryIssue[]
 }

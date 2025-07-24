@@ -1,4 +1,4 @@
-# Github Repositores
+# Github Repositories
 
 Um projeto simples de consumo da API do GitHub e listagem dos repositórios e favoritos de um usuário com filtragem da query por nome dos repositórios.
 

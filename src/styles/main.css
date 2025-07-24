@@ -8,7 +8,8 @@
 
 @theme {
   --font-roboto: "Roboto", sans-serif;
-  --breakpoint-xs: 20rem;
+  --breakpoint-xs: 30rem;
+  --breakpoint-2xs: 20rem;
   --color-C_1: #262626;
   --color-C_2: #f8f8f8;
   --color-C_3: #989898;
@@ -18,6 +19,16 @@
   --color-L_1: #0587ff;
   --color-L_2: #0056a6;
   --color-R_1: #fd8c73;
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }
 
 :root {
@@ -33,7 +44,7 @@
 }
 
 .pending {
-  @apply flex flex-col justify-center items-center py-20
+  @apply flex flex-col justify-center items-center py-20;
 }
 
 .layout {
@@ -113,7 +124,7 @@
 }
 
 .repo-tabs {
-  @apply w-full h-[100%] flex flex-col items-center px-6 max-xs:px-2 sm:max-w-[65%];
+  @apply w-full h-[100%] flex flex-col items-center px-6 max-2xs:px-2 sm:max-w-[65%];
 }
 
 .repo-tabs__header {
@@ -141,7 +152,7 @@
 }
 
 .repo-card {
-  @apply flex flex-col gap-[9px] w-full items-start justify-start py-8 border-b border-b-C_4;
+  @apply flex flex-col gap-[9px] w-full items-start justify-start py-8 border-b border-b-C_4 cursor-pointer hover:border-C_3;
 }
 
 .repo-card__header {
@@ -255,4 +266,92 @@
 
 .filter__checkbox {
   @apply size-6 border border-C_4;
+}
+
+.repo-explorer {
+  @apply max-w-[90%] md:max-w-[75%] lg:max-w-[800px] mx-auto w-full;
+}
+
+.repo-explorer__container {
+  @apply flex flex-row-reverse  justify-between w-full max-sm:flex-col max-sm:items-end;
+}
+
+.repo-explorer__close-button {
+  @apply mr-8 flex flex-row sm:mr-16 mt-4 justify-self-start size-8 sm:size-16;
+}
+
+.repo-explorer__close-icon {
+  @apply size-full sm:size-10 cursor-pointer bg-C_4 rounded-full p-1 sm:p-2;
+}
+
+.repo-explorer__content {
+  @apply flex flex-col pt-6 px-8 sm:pl-16 sm:pr-0 w-[100%];
+}
+
+.repo-explorer__content__inner {
+  @apply flex flex-col;
+}
+
+.repo-stats {
+  @apply flex gap-4 sm:gap-8 items-start border-b border-C_5 flex-col xs:flex-row;
+}
+
+.repo-stats__avatar {
+  @apply size-[25%] max-sm:min-w-[56px] sm:size-24 rounded-full;
+}
+
+.repo-stats__container {
+  @apply flex flex-col pt-2 min-h-12 max-w-100;
+}
+
+.repo-stats__title {
+  @apply sm:text-3xl text-xl font-bold mb-2;
+}
+
+.repo-stats__description {
+  @apply text-sm text-C_3 min-h-[15px];
+}
+
+.repo-stats__footer {
+  @apply flex flex-row sm:pt-8 pt-4 pb-4 pl-4 gap-12;
+}
+
+.repo-stats__benchmark {
+  @apply flex flex-col;
+}
+
+.repo-stats__benchmark__counter {
+  @apply sm:text-3xl text-xl font-bold;
+}
+
+.repo-stats__benchmark__name {
+  @apply sm:text-lg text-C_3;
+}
+
+.issues-list {
+  @reference flex flex-col w-full gap-4 py-6 overflow-auto max-h-[600px] items-center no-scrollbar pb-24
+}
+
+.github-link {
+  @apply font-medium text-C_3 px-2 py-4 hover:font-bold hover:text-L_1 cursor-pointer
+}
+
+.issue-card {
+  @apply flex flex-row w-[95%] px-6 py-4 justify-between cursor-pointer rounded-lg shadow-sm border border-C_5 hover:border-2 ml-4 max-sm:ml-0 max-sm:px-2 max-sm:w-[95%] z-10
+}
+
+.issue-card__container {
+  @apply flex flex-col w-full gap-4
+}
+
+.issue-card__title {
+  @apply text-lg font-bold max-sm:text-sm
+}
+
+.issue-card__author {
+  @apply font-medium text-C_3 max-sm:text-xs
+}
+
+.issue-card__arrow {
+  @apply text-3xl font-bold text-C_5
 }

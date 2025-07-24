@@ -1,8 +1,8 @@
 import "./styles/main.css";
 import UserCard from "./components/user/UserCard";
 import Header from "./components/Header";
-import RepoTabs from "./components/repositories/RepoTabs";
 import UserRepositories from "./components/repositories/UserRepositories";
+import RepoExplorer from "./components/repositories/explorer/RepoExplorer";
 
 
 
@@ -15,6 +15,7 @@ function App() {
       <div className="layout">
         <UserCard/>
         <UserRepositories/>
+        <RepoExplorer/>
       </div>
     </>
   );
