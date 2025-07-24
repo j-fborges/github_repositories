@@ -44,44 +44,37 @@ query {
   `,
 };
 
-
 export async function getUser(): Promise<getUserFields> {
-  return new Promise<getUserFields>(async (resolve, reject) => {
-    try {
-      const response = await fetch(baseUrl, {
-        method: "POST",
-        headers: headers,
-        body: JSON.stringify(body),
-      });
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const data = await response.json();
-
-      const user = data.data.user;
-      const userStatus = user.status;
-
-      resolve({
-        user: {
-          name: user.name,
-          avatar_url: user.avatarUrl,
-          bio: user.bio,
-          html_url: user.url,
-          location: user.location,
-          company: user.company,
-          blog: user.websiteUrl,
-          instagram_url: user.socialAccounts.nodes[0].url,
-          instagram_nickname: user.socialAccounts.nodes[0].displayName,
-          status: {
-            emoji: userStatus.emojiHTML,
-            message: userStatus.message,
-          },
-        },
-      });
-    } catch (error) {
-      reject(error);
-    }
+  const response = await fetch(baseUrl, {
+    method: "POST",
+    headers: headers,
+    body: JSON.stringify(body),
   });
+
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+
+  const data = await response.json();
+
+  const user = data.data.user;
+  const userStatus = user.status;
+
+  return {
+    user: {
+      name: user.name,
+      avatar_url: user.avatarUrl,
+      bio: user.bio,
+      html_url: user.url,
+      location: user.location,
+      company: user.company,
+      blog: user.websiteUrl,
+      instagram_url: user.socialAccounts.nodes[0].url,
+      instagram_nickname: user.socialAccounts.nodes[0].displayName,
+      status: {
+        emoji: userStatus.emojiHTML,
+        message: userStatus.message,
+      },
+    },
+  };
 }

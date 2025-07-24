@@ -1,5 +1,4 @@
-import type { ElementType, ReactNode } from "react";
-import { useLangFilterDrawerStore } from "./filterDrawerStore";
+import type { ReactNode } from "react";
 import type { DrawerState } from "../../user/informationDrawerStore";
 import type { StoreApi, UseBoundStore } from "zustand";
 import chevronDown from "../../..//assets/chevronDownWhite.svg";

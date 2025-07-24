@@ -1,5 +1,4 @@
 import { create } from "zustand";
-import type { Repository } from "../../../types/Repository";
 import type { GetRepoInfoProps } from "../../../api/getRepositoryInfo";
 
 

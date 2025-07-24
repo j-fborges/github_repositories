@@ -41,27 +41,21 @@ query {
   `,
   };
 
-  return new Promise<GetRepositoryInfoFields>(async (resolve, reject) => {
-    try {
-      const response = await fetch(baseUrl, {
-        method: "POST",
-        headers: headers,
-        body: JSON.stringify(body),
-      });
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const data = await response.json();
-
-      const repo = data.data.repository;
-
-      resolve({
-        repo,
-      });
-    } catch (error) {
-      reject(error);
-    }
+  const response = await fetch(baseUrl, {
+    method: "POST",
+    headers: headers,
+    body: JSON.stringify(body),
   });
+
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+
+  const data = await response.json();
+
+  const repo = data.data.repository;
+
+  return {
+    repo,
+  };
 }

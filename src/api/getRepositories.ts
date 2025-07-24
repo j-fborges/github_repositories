@@ -142,13 +142,15 @@ function handleLanguageFilter(
 function handleSearch(
   repoArray: Repository[],
   currentSearch: string
-):Repository[]{
-  if (currentSearch.length < 1) return repoArray
+): Repository[] {
+  if (currentSearch.length < 1) return repoArray;
 
-  return repoArray.filter((repo)=>{
-
-    return (repo.name).includes(currentSearch) || (repo.owner.login).includes(currentSearch)
-  })
+  return repoArray.filter((repo) => {
+    return (
+      repo.name.includes(currentSearch) ||
+      repo.owner.login.includes(currentSearch)
+    );
+  });
 }
 
 function handleFilters(
@@ -159,7 +161,8 @@ function handleFilters(
   categoriesToFilter: CategoryFilterInterface,
   currentSearch: string
 ): Repository[] {
-  if (!languageFilterOn && !categoryFilterOn && currentSearch.length < 1) return repoArray;
+  if (!languageFilterOn && !categoryFilterOn && currentSearch.length < 1)
+    return repoArray;
 
   let filteredArray = handleLanguageFilter(
     repoArray,
@@ -167,22 +170,22 @@ function handleFilters(
     languagesToFilter
   );
 
-  filteredArray =  handleCategoryFilter(
+  filteredArray = handleCategoryFilter(
     filteredArray,
     categoryFilterOn,
     categoriesToFilter
   );
 
-  filteredArray = handleSearch(filteredArray, currentSearch)
+  filteredArray = handleSearch(filteredArray, currentSearch);
 
-  return filteredArray
+  return filteredArray;
 }
 
 export async function getRepositories({
   categoryFilterOn = false,
   languageFilterOn = false,
   languagesToFilter = [],
-  currentSearch='',
+  currentSearch = "",
   categoriesToFilter = {
     isSource: false,
     isFork: false,
@@ -190,49 +193,43 @@ export async function getRepositories({
     isMirror: false,
   },
 }: GetRepositoriesFilters): Promise<GetRepositoriesFields> {
-  return new Promise<GetRepositoriesFields>(async (resolve, reject) => {
-    try {
-      const response = await fetch(baseUrl, {
-        method: "POST",
-        headers: headers,
-        body: JSON.stringify(body),
-      });
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const data = await response.json();
-
-      const publicReposList: RepositoryList = {
-        repos: handleFilters(
-          data.data.user.repositories.nodes,
-          languageFilterOn,
-          categoryFilterOn,
-          languagesToFilter,
-          categoriesToFilter,
-          currentSearch
-        ),
-        reposCount: data.data.user.repositories.totalCount,
-      };
-      const starredReposList: RepositoryList = {
-        repos: handleFilters(
-          data.data.user.starredRepositories.nodes,
-          languageFilterOn,
-          categoryFilterOn,
-          languagesToFilter,
-          categoriesToFilter,
-          currentSearch
-        ),
-        reposCount: data.data.user.starredRepositories.totalCount,
-      };
-
-      resolve({
-        publicReposList,
-        starredReposList,
-      });
-    } catch (error) {
-      reject(error);
-    }
+  const response = await fetch(baseUrl, {
+    method: "POST",
+    headers: headers,
+    body: JSON.stringify(body),
   });
+
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+
+  const data = await response.json();
+
+  const publicReposList: RepositoryList = {
+    repos: handleFilters(
+      data.data.user.repositories.nodes,
+      languageFilterOn,
+      categoryFilterOn,
+      languagesToFilter,
+      categoriesToFilter,
+      currentSearch
+    ),
+    reposCount: data.data.user.repositories.totalCount,
+  };
+  const starredReposList: RepositoryList = {
+    repos: handleFilters(
+      data.data.user.starredRepositories.nodes,
+      languageFilterOn,
+      categoryFilterOn,
+      languagesToFilter,
+      categoriesToFilter,
+      currentSearch
+    ),
+    reposCount: data.data.user.starredRepositories.totalCount,
+  };
+
+  return {
+    publicReposList,
+    starredReposList,
+  };
 }

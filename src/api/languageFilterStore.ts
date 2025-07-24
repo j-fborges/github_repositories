@@ -44,7 +44,7 @@ const useLanguageFilterStore = create<LanguageFilterState>((set) => ({
     set((state) => {
       if (state.isAllLangsActive)
         return { activeLangFilters: ["Java", "TypeScript", "HTML", "CSS"] };
-      let filters: string[] = [];
+      const filters: string[] = [];
 
       if (state.isJavaActive) filters.push("Java");
       if (state.isTsActive) filters.push("TypeScript");
