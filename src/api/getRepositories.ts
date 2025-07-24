@@ -143,7 +143,10 @@ function handleSearch(
   repoArray: Repository[],
   currentSearch: string
 ):Repository[]{
+  if (currentSearch.length < 1) return repoArray
+
   return repoArray.filter((repo)=>{
+
     return (repo.name).includes(currentSearch) || (repo.owner.login).includes(currentSearch)
   })
 }
@@ -156,7 +159,7 @@ function handleFilters(
   categoriesToFilter: CategoryFilterInterface,
   currentSearch: string
 ): Repository[] {
-  if (!languageFilterOn && !categoryFilterOn) return repoArray;
+  if (!languageFilterOn && !categoryFilterOn && currentSearch.length < 1) return repoArray;
 
   let filteredArray = handleLanguageFilter(
     repoArray,
@@ -170,7 +173,9 @@ function handleFilters(
     categoriesToFilter
   );
 
-  return handleSearch(filteredArray, currentSearch)
+  filteredArray = handleSearch(filteredArray, currentSearch)
+
+  return filteredArray
 }
 
 export async function getRepositories({

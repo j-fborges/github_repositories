@@ -8,39 +8,57 @@ type FilterBarProps = {
 };
 
 function FilterBar({ children }: FilterBarProps) {
-  const currentSearch = useSearchStore((state) => state.currentSearch);
+  const currentString = useSearchStore((state) => state.currentString);
   const setSearch = useSearchStore((state) => state.setSearch);
+  const setString = useSearchStore((state) => state.setString);
 
   return (
     <div className="filter__bar">
       <div className="filter__list">
         <div className="filter__list__inner">{children}</div>
-        <div className="filter__search--mobile">
-          <input
-            value={currentSearch}
-            onChange={(e) => setSearch(e.target.value)}
-            className="filter__search-input--mobile"
-          />
-          <img
-            src={searchIconBlue}
+          <form
+          className="filter__search--mobile"
+            onSubmit={(e) => {
+              e.preventDefault();
+              setSearch();
+            }}
+          >
+            <input
+              value={currentString}
+              onChange={(e) => setString(e.target.value)}
+              className="filter__search-input--mobile"
+            />
+            <button type="submit" className="filter__search-icon">
+            <img
+              src={searchIconBlue}
+              alt="Ícone de pesquisa"
+              className="filter__search-icon"
+            />
+            </button>
+          </form>
+      </div>
+      <form
+          className="filter__search"
+            onSubmit={(e) => {
+              e.preventDefault();
+              setSearch();
+            }}
+          >
+        <button type="submit" className="filter__search-icon">
+            <img
+            src={searchIcon}
             alt="Ícone de pesquisa"
             className="filter__search-icon"
-          />
-        </div>
-      </div>
-      <div className="filter__search">
-        <img
-          src={searchIcon}
-          alt="Ícone de pesquisa"
-          className="filter__search-icon"
-        />
+            />
+        </button>
         <input
-          value={currentSearch}
-          onChange={(e) => setSearch(e.target.value)}
+          value={currentString}
+          onChange={(e) => setString(e.target.value)}
+          onSubmit={() => setSearch()}
           placeholder="Search here"
           className="filter__search-input"
         />
-      </div>
+      </form>
     </div>
   );
 }

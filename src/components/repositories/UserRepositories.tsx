@@ -13,7 +13,7 @@ function UserRepositories() {
   );
   const activeCategoriesFilters = useCateforyFilterStore((state)=> state.activeCategoriesFilters)
   const activeCatFiltersCount = useCateforyFilterStore((state)=> state.activeFiltersCount)
-  const currentSearch = useSearchStore((state)=>state.currentSearch)
+  const currentSearch = useSearchStore((state)=>state.currentSearch.toLowerCase())
 
   const {isSource, isArchived, isFork, isMirror} = activeCategoriesFilters
 
