@@ -11,7 +11,7 @@ function IssueCard({issueAuthor, issueTitle, issueUrl}:IssueCard){
               <span className="issue-card__title">{issueTitle}</span>
               <span className="issue-card__author">{issueAuthor}</span>
             </div>
-            <span className="isse-card__arrow">{">"}</span>
+            <span className="issue-card__arrow">{">"}</span>
           </a>
     )
 }
