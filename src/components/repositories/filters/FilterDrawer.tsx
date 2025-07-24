@@ -31,18 +31,22 @@ function FilterDrawer({ useDrawerStore, title, children }: FilterDrawerProps) {
         </button>
         <div className={toggleDrawerClass}>{children}</div>
         <div className={toggleDrawerClass + "--mobile"}>
-          <Sheet isOpen={isOpen} onClose={toggleDrawer} className={toggleDrawerClass + "--mobile"}>
+          <Sheet
+            isOpen={isOpen}
+            onClose={toggleDrawer}
+            className={toggleDrawerClass + "--mobile"}
+          >
             <Sheet.Container className={toggleDrawerClass + "--mobile"}>
-              <Sheet.Header className={toggleDrawerClass + "--mobile"}/>
+              <Sheet.Header className={toggleDrawerClass + "--mobile"} />
               <Sheet.Content className={toggleDrawerClass + "--mobile"}>
                 <>
-                <span className="text-2xl font-bold px-2 py-4">
+                  <span className="filter__drawer__button-text--mobile">
                     {title}
-                </span>
-                {children}
+                  </span>
+                  {children}
                 </>
-                </Sheet.Content>
-            </Sheet.Container >
+              </Sheet.Content>
+            </Sheet.Container>
             <Sheet.Backdrop className={toggleDrawerClass + "--mobile"} />
           </Sheet>
         </div>

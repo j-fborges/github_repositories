@@ -73,6 +73,7 @@ type GetRepositoriesFilters = {
   languageFilterOn?: boolean;
   languagesToFilter?: string[];
   categoriesToFilter?: CategoryFilterInterface;
+  currentSearch?: string;
 };
 
 function containFilterString(stringToCheck: string, activeFilters: string[]) {
@@ -138,12 +139,22 @@ function handleLanguageFilter(
       });
 }
 
+function handleSearch(
+  repoArray: Repository[],
+  currentSearch: string
+):Repository[]{
+  return repoArray.filter((repo)=>{
+    return (repo.name).includes(currentSearch) || (repo.owner.login).includes(currentSearch)
+  })
+}
+
 function handleFilters(
   repoArray: Repository[],
   languageFilterOn: boolean,
   categoryFilterOn: boolean,
   languagesToFilter: string[],
-  categoriesToFilter: CategoryFilterInterface
+  categoriesToFilter: CategoryFilterInterface,
+  currentSearch: string
 ): Repository[] {
   if (!languageFilterOn && !categoryFilterOn) return repoArray;
 
@@ -153,17 +164,20 @@ function handleFilters(
     languagesToFilter
   );
 
-  return handleCategoryFilter(
+  filteredArray =  handleCategoryFilter(
     filteredArray,
     categoryFilterOn,
     categoriesToFilter
   );
+
+  return handleSearch(filteredArray, currentSearch)
 }
 
 export async function getRepositories({
   categoryFilterOn = false,
   languageFilterOn = false,
   languagesToFilter = [],
+  currentSearch='',
   categoriesToFilter = {
     isSource: false,
     isFork: false,
@@ -191,7 +205,8 @@ export async function getRepositories({
           languageFilterOn,
           categoryFilterOn,
           languagesToFilter,
-          categoriesToFilter
+          categoriesToFilter,
+          currentSearch
         ),
         reposCount: data.data.user.repositories.totalCount,
       };
@@ -201,7 +216,8 @@ export async function getRepositories({
           languageFilterOn,
           categoryFilterOn,
           languagesToFilter,
-          categoriesToFilter
+          categoriesToFilter,
+          currentSearch
         ),
         reposCount: data.data.user.starredRepositories.totalCount,
       };

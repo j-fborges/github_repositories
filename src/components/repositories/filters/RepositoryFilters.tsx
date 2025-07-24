@@ -1,13 +1,17 @@
 import CategoryFilterList from "./CategoryFilterList";
+import FilterBar from "./FilterBar";
 import LangFilterList from "./LangFilterList";
 
 function RepositoryFilters() {
-
   return (
-    <div className="filter__list">
-      <CategoryFilterList/>
-      <LangFilterList/>
-    </div>
+    <FilterBar
+      children={
+        <>
+          <CategoryFilterList />
+          <LangFilterList />
+        </>
+      }
+    />
   );
 }
 

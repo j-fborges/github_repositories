@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import UserAdditionalInformation from "./UserAdditionalInformation";
 import { getUser } from "../../api/getUser";
+import PendingSpinner from "../../assets/PendingSpinner";
 
 
 function UserCard(){
@@ -9,7 +10,7 @@ function UserCard(){
     queryFn: ()=>getUser(),
   });
 
-  if (isPending) return "Loading...";
+  if (isPending) return <PendingSpinner/>;
 
   if (error) return "An error has occurred: " + error.message;
 

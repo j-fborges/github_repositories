@@ -13,11 +13,11 @@
   --color-C_2: #f8f8f8;
   --color-C_3: #989898;
   --color-C_4: #f4f4f4;
-  --color-C_5: #DBDBDB;
+  --color-C_5: #dbdbdb;
   --color-H_1: #24292e;
   --color-L_1: #0587ff;
-  --color-L_2: #0056A6;
-  --color-R_1: #FD8C73;
+  --color-L_2: #0056a6;
+  --color-R_1: #fd8c73;
 }
 
 :root {
@@ -30,6 +30,10 @@
 * {
   box-sizing: border-box;
   @apply font-roboto;
+}
+
+.pending {
+  @apply flex flex-col justify-center items-center py-20
 }
 
 .layout {
@@ -109,113 +113,146 @@
 }
 
 .repo-tabs {
-  @apply w-full h-[100%] flex flex-col items-center px-6 max-xs:px-2 sm:max-w-[65%]
+  @apply w-full h-[100%] flex flex-col items-center px-6 max-xs:px-2 sm:max-w-[65%];
 }
 
 .repo-tabs__header {
-  @apply flex flex-row w-full items-start justify-start gap-[56px] self-start max-sm:gap-[6%] max-sm:justify-between max-sm:max-w-[380px] max-md:gap-[4%]
+  @apply flex flex-row w-full items-start justify-start gap-[56px] self-start max-sm:gap-[6%] max-sm:justify-between max-sm:max-w-[380px] max-md:gap-[4%];
 }
 
 .repo-tabs__button {
-  @apply flex flex-row w-full justify-evenly max-w-[185px] border-b-2 border-transparent py-4 pl-2 max-sm:w-auto
+  @apply flex flex-row w-full justify-evenly max-w-[185px] border-b-2 border-transparent py-4 pl-2 max-sm:w-auto;
 }
 
 .repo-tabs__button--is-active {
-  @apply flex flex-row w-full justify-evenly max-w-[185px] border-b-2 border-R_1 py-4 pl-2 max-sm:w-auto
+  @apply flex flex-row w-full justify-evenly max-w-[185px] border-b-2 border-R_1 py-4 pl-2 max-sm:w-auto;
 }
 
 .repo-tabs__button-text {
-  @apply text-base pl-2 pr-4 max-sm:pl-1 max-sm:pr-2
+  @apply text-base pl-2 pr-4 max-sm:pl-1 max-sm:pr-2;
 }
 
 .repo-tabs__button-icon {
-  @apply size-6
+  @apply size-6;
 }
 
 .repo-tabs__button-counter {
-  @apply w-10 h-6 rounded-2xl bg-C_2 text-C_3 border-C_5 border text-sm flex items-center justify-center
+  @apply w-10 h-6 rounded-2xl bg-C_2 text-C_3 border-C_5 border text-sm flex items-center justify-center;
 }
 
 .repo-card {
-  @apply flex flex-col gap-[9px] w-full items-start justify-start py-8 border-b border-b-C_4
+  @apply flex flex-col gap-[9px] w-full items-start justify-start py-8 border-b border-b-C_4;
 }
 
-.repo-card__header{
-  @apply flex flex-row gap-[9px] items-center
+.repo-card__header {
+  @apply flex flex-row gap-[9px] items-center;
 }
 
-.repo-card__repo-owner{
-  @apply font-light text-lg capitalize
+.repo-card__repo-owner {
+  @apply font-light text-lg capitalize;
 }
 
-.repo-card__divider{
- @apply text-xl
+.repo-card__divider {
+  @apply text-xl;
 }
 
-.repo-card__repo-name{
-  @apply font-medium text-lg text-L_1 capitalize
+.repo-card__repo-name {
+  @apply font-medium text-lg text-L_1 capitalize;
 }
 
-.repo-card__description{
-  @apply text-sm text-C_3 min-h-[15px]
+.repo-card__description {
+  @apply text-sm text-C_3 min-h-[15px];
 }
 
-.repo-card__footer{
-  @apply flex flex-row gap-11 items-center
+.repo-card__footer {
+  @apply flex flex-row gap-11 items-center;
 }
 
-.repo-card__stats-container{
-  @apply flex flex-row gap-[9px] items-center
+.repo-card__stats-container {
+  @apply flex flex-row gap-[9px] items-center;
 }
 
-.repo-card__stats-icon{
-  @apply size-[16px]
+.repo-card__stats-icon {
+  @apply size-[16px];
 }
 
-.repo-card__stats-text{
-  @apply text-sm
+.repo-card__stats-text {
+  @apply text-sm;
+}
+
+.filter__bar {
+  @apply flex flex-col w-full bg-white lg:flex-row-reverse lg:items-center lg:justify-between;
 }
 
 .filter__list {
-  @apply flex flex-row w-full max-sm:bg-C_2 px-2 py-4 h-14 rounded-2xl gap-4 items-center justify-end mt-6 mb-8 max-sm:justify-start
+  @apply flex flex-row w-full max-sm:bg-C_2 px-2 py-4 h-14 rounded-2xl gap-2 sm:gap-4 items-center md:justify-end mt-6 mb-8 max-sm:justify-start justify-start lg:w-auto;
+}
+
+.filter__list__inner {
+  @apply flex flex-row min-w-[230px] gap-2 sm:gap-4;
+}
+
+.filter__search {
+  @apply flex flex-row h-[30px] border-b border-C_4 gap-4 justify-start items-start max-sm:hidden lg:w-[50%];
+}
+
+.filter__search--mobile {
+  @apply flex flex-row h-[30px] border-b border-C_4 sm:gap-4 justify-start items-center sm:hidden w-full max-sm:justify-end;
+}
+
+.filter__search-input {
+  @apply text-lg text-C_3 focus:outline-hidden lg:w-[100%];
+}
+
+.filter__search-input--mobile {
+  @apply text-lg text-C_3 focus:outline-hidden w-[90%];
+}
+
+.filter__search-icon {
+  @apply size-6;
 }
 
 .filter__drawer {
-  @apply flex flex-col relative w-auto max-h-10
+  @apply flex flex-col relative w-auto max-h-10;
 }
 
 .filter__drawer__button {
-  @apply flex flex-row px-2 py-4 bg-gradient-to-r from-L_2 to-L_1 rounded-3xl gap-[10px] max-h-10 items-center font-normal max-sm:max-w-[160px] w-full pr-4
+  @apply flex flex-row px-2 sm:px-4 py-4 bg-gradient-to-r from-L_2 to-L_1 rounded-3xl gap-[10px] max-h-10 items-center font-normal max-sm:max-w-[160px] w-full pr-4 sm:pr-6;
 }
 
 .filter__drawer__button-icon {
-  @apply size-6 flex items-center justify-center
+  @apply size-6 flex items-center justify-center;
 }
 
 .filter__drawer__button-text {
-  @apply text-lg text-white
+  @apply text-lg text-white max-sm:text-sm;
 }
 
-.filter__options, .filter__options--mobile {
-  @apply hidden invisible
+.filter__drawer__button-text--mobile {
+  @apply text-2xl font-bold px-2 py-4;
+}
+
+.filter__options,
+.filter__options--mobile {
+  @apply hidden invisible;
 }
 
 .filter__options--is-open {
-  @apply flex visible max-sm:hidden max-sm:invisible
+  @apply flex visible max-sm:hidden max-sm:invisible;
 }
 
 .filter__options--is-open--mobile {
-  @apply flex sm:hidden sm:invisible px-6
+  @apply flex sm:hidden sm:invisible px-6;
 }
 
 .filter__container {
-  @apply flex flex-col gap-1 py-4 px-2 bg-white rounded-2xl w-full sm:shadow-xl
+  @apply flex flex-col gap-1 py-4 px-2 bg-white rounded-2xl w-full sm:shadow-xl;
 }
 
 .filter__label {
-  @apply flex flex-row py-4 px-2 gap-4 items-center h-8 w-full
+  @apply flex flex-row py-4 px-2 gap-4 items-center h-8 w-full;
 }
 
 .filter__checkbox {
-  @apply size-6 border border-C_4
+  @apply size-6 border border-C_4;
 }
