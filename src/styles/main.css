@@ -43,6 +43,10 @@
   @apply font-roboto;
 }
 
+body{
+  @apply max-w-[100vw] overflow-x-hidden
+}
+
 .pending {
   @apply flex flex-col justify-center items-center py-20;
 }
@@ -277,7 +281,7 @@
 }
 
 .repo-explorer__close-button {
-  @apply mr-8 flex flex-row sm:mr-16 mt-4 justify-self-start size-8 sm:size-16;
+  @apply mr-4 flex flex-row sm:mr-16 mt-4 justify-self-start size-16 sm:size-16 max-sm:p-4;
 }
 
 .repo-explorer__close-icon {
@@ -297,7 +301,7 @@
 }
 
 .repo-stats__avatar {
-  @apply size-[25%] max-sm:min-w-[56px] sm:size-24 rounded-full;
+  @apply size-[25%] max-sm:min-w-[56px] max-sm:min-h-[56px] sm:size-24 rounded-full;
 }
 
 .repo-stats__container {
