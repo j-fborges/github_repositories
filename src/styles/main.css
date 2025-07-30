@@ -128,7 +128,7 @@ body{
 }
 
 .repo-tabs {
-  @apply w-full h-[100%] flex flex-col items-center px-6 max-2xs:px-2 sm:max-w-[65%];
+  @apply w-full h-[100%] flex flex-col items-center px-6 max-2xs:px-2 sm:max-w-[65%] max-sm:max-w-[100vw] overflow-hidden;
 }
 
 .repo-tabs__header {
@@ -160,11 +160,11 @@ body{
 }
 
 .repo-card__header {
-  @apply flex flex-row gap-[9px] items-center;
+  @apply flex flex-row gap-[9px] items-center max-w-[100%] overflow-hidden flex-wrap wrap-break-word;
 }
 
 .repo-card__repo-owner {
-  @apply font-light text-lg capitalize;
+  @apply font-light text-lg capitalize flex-wrap wrap-break-word max-w-[100%];
 }
 
 .repo-card__divider {
@@ -172,7 +172,7 @@ body{
 }
 
 .repo-card__repo-name {
-  @apply font-medium text-lg text-L_1 capitalize;
+  @apply font-medium text-lg text-L_1 capitalize wrap-break-word max-w-[100%];
 }
 
 .repo-card__description {
@@ -200,7 +200,7 @@ body{
 }
 
 .filter__list {
-  @apply flex flex-row w-full max-sm:bg-C_2 px-2 py-4 h-14 rounded-2xl gap-2 sm:gap-4 items-center md:justify-end mt-6 mb-8 max-sm:justify-start justify-start lg:w-auto;
+  @apply flex flex-row w-full max-sm:bg-C_2 px-2 py-4 h-14 rounded-2xl gap-2 sm:gap-4 items-center md:justify-end mt-6 mb-8 max-sm:justify-start justify-start lg:w-auto max-sm:py-0;
 }
 
 .filter__list__inner {
@@ -212,7 +212,7 @@ body{
 }
 
 .filter__search--mobile {
-  @apply flex flex-row h-[30px] border-b border-C_4 sm:gap-4 justify-start items-center sm:hidden w-full max-sm:justify-end;
+  @apply flex flex-row h-auto border-b border-C_4 sm:gap-4 justify-start items-center sm:hidden w-full max-sm:justify-end py-4;
 }
 
 .filter__search-input {
@@ -289,7 +289,7 @@ body{
 }
 
 .repo-explorer__content {
-  @apply flex flex-col pt-6 px-8 sm:pl-16 sm:pr-0 w-[100%];
+  @apply flex flex-col pt-6 px-8 sm:pl-16 sm:pr-0 w-[100%] sm:max-w-[80%];
 }
 
 .repo-explorer__content__inner {
@@ -305,11 +305,11 @@ body{
 }
 
 .repo-stats__container {
-  @apply flex flex-col pt-2 min-h-12 max-w-100;
+  @apply flex flex-col pt-2 min-h-12 max-w-[100%];
 }
 
 .repo-stats__title {
-  @apply sm:text-3xl text-xl font-bold mb-2;
+  @apply sm:text-3xl text-xl font-bold mb-2 capitalize wrap-break-word max-sm:max-w-[100%] sm:max-w-[60%] md:max-w-[80%];
 }
 
 .repo-stats__description {
