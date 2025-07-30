@@ -1,7 +1,7 @@
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white) ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white) ![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 
 > [!TIP]
-> Acess the website at [https://github-repositories-nmqweerar-joaotallers-projects.vercel.app/](https://github-repositories-nmqweerar-joaotallers-projects.vercel.app/)
+> Acess the website at [https://github-repositories-mu.vercel.app/](https://github-repositories-mu.vercel.app/)
 
 # Github Repositories Explorer - Simple SPA with GitHub API consumption
 
