@@ -12,7 +12,7 @@ function RepoIssuesList({ issues, repoLink }: RepoIssuesListProps) {
       {issues?.map((issue) => {
         return (
           <IssueCard
-            issueAuthor={issue.author.login}
+            issueAuthor={issue.author? issue.author.login : "-----"}
             issueTitle={issue.title}
             issueUrl={issue.url}
           />
