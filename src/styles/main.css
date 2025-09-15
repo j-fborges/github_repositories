@@ -301,7 +301,7 @@ body{
 }
 
 .repo-stats__avatar {
-  @apply size-[25%] max-sm:min-w-[56px] max-sm:min-h-[56px] sm:size-24 rounded-full;
+  @apply size-[25%] max-sm:size-[60px] sm:size-24 rounded-full ;
 }
 
 .repo-stats__container {
