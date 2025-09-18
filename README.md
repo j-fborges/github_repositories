@@ -3,7 +3,7 @@
 > [!TIP]
 > Acess the website at [https://github-repositories-mu.vercel.app/](https://github-repositories-mu.vercel.app/)
 
-# Github Repositories Explorer - Simple SPA with GitHub API consumption
+# Github Repositories Explorer - Simple SPA with GitHub API consumption + Figma model
 
 Um projeto simples de SPA com consumo da API do GitHub e listagem dos repositórios e favoritos de um usuário com filtragem da query por nome dos repositórios e um explorador das issues de e outros dados desses repositórios.
 
