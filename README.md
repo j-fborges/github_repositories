@@ -1,4 +1,4 @@
-![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white) ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white) ![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white) ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white) ![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white) ![FIGMA](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)
 
 > [!TIP]
 > Acess the website at [https://github-repositories-mu.vercel.app/](https://github-repositories-mu.vercel.app/)
@@ -9,6 +9,10 @@ Um projeto simples de SPA com consumo da API do GitHub e listagem dos repositór
 
 >EN:
 >A simple SPA project for consuming GitHub API and browsing a user's repos and starred repos with repo name string query filtering for results.
+
+[**Projeto desenvolvido com base nos modelos do Figma encontrados aqui**](https://www.figma.com/design/qdlPEB7hzfWqACfI1hxB1s/J.F.Borges-s-team-library?node-id=2513-1262&t=lx6d1CRS777P8a18-4)
+>Project developed based on the Figma models found here ^
+
 
 ## Setup local do projeto:
 > Local Setup:
